@@ -3,20 +3,23 @@ import ContactItem from './ContactItem'
 
 export default class ContactList extends Component {
   render () {
-    let items = this.props.contacts.map(
-      (contact) => <ContactItem key={ contact.email }
-                   name={ contact.name }
-                   email={ contact.email } />
+    let filteredContacts = this.props.contacts.filter(
+      (contact) => contact.name.indexOf(this.props.filterText) !== -1
     );
 
     return (
       <ul>
-        { items }
+        { filteredContacts.map(
+          (contact) => <ContactItem key={ contact.email }
+                       name={ contact.name }
+                       email={ contact.email } />
+        ) }
       </ul>
     );
   }
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object)
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  filterText: PropTypes.string.isRequired
 }
