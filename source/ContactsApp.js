@@ -3,7 +3,6 @@ import ContactList from './ContactList';
 import SearchBar from './SearchBar';
 
 export default class ContactsApp extends Component {
-
   constructor () {
     super();
     this.state = {
@@ -11,11 +10,16 @@ export default class ContactsApp extends Component {
     };
   }
 
+  handleUserInput (searchTerm) {
+    this.setState({ filterText: searchTerm });
+  }
+
   render () {
     return (
       <section>
         <h1>Contacts App</h1>
-        <SearchBar filterText={ this.state.filterText } />
+        <SearchBar filterText={ this.state.filterText }
+                   onUserInput={ this.handleUserInput.bind(this) }/>
         <ContactList contacts={ this.props.contacts }
                      filterText={ this.state.filterText } />
       </section>
