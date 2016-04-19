@@ -3,7 +3,7 @@ module.exports = {
     "./source/App.js"
   ],
   output: {
-    path: __dirname,
+    path: __dirname + "/public",
     filename: "bundle.js"
   },
   module: {
@@ -15,5 +15,10 @@ module.exports = {
         presets: ["es2015", "react"]
       }
     }]
+  },
+  devServer: {
+    contentBase: "./public",
+    colors: true,
+    inline: true
   }
 };
