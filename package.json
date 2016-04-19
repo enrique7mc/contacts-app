@@ -1,7 +1,7 @@
 {
   "name": "contacts-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Contact app built in React JS",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --progress"
   },
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "whatwg-fetch": "^0.11.0"
   }
 }
